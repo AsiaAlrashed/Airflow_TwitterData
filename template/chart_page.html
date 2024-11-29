@@ -1,0 +1,45 @@
+<!-- templates/chart_page.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Data Analysis</title>
+</head>
+
+<body style="align-items: center; align-content: center; justify-items: center;">
+    <h1>Weather Data Analysis</h1>
+
+    <!-- Form to search data for a specific location -->
+    <form id="locationForm" onsubmit="redirectToLocation(event)">
+        <label for="location">Enter Location:</label>
+        <input type="text" id="location" name="location" placeholder="Enter location name" required>
+        <button type="submit">Search</button>
+    </form>
+
+    <script>
+        function redirectToLocation(event) {
+            event.preventDefault(); // Prevent the default form submission
+            const location = document.getElementById('location').value.trim(); // Get the entered location
+            if (location) {
+                window.location.href = `/location/${encodeURIComponent(location)}`; // Redirect to the new URL
+            }
+        }
+    </script>
+
+    <!-- Display selected location -->
+    <h2>Data for Location: {{ location }}</h2>
+
+    <!-- Display data analysis summary -->
+    <h3>Data Analysis Summary</h3>
+    <p>{{ summary }}</p>
+
+    <!-- Display the chart image -->
+    <div style="display: flex; flex-direction: row;">
+        <img src="/static/chart.png" alt="Weather Chart">
+        <img src="/static/chart1.png" alt="Weather Chart">
+    </div>
+</body>
+
+</html>
