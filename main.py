@@ -6,13 +6,6 @@ from fastapi.templating import Jinja2Templates
 from ELT_pipeline.Weather_Pipeline import WeatherPipeline
 from ELT_pipeline.Weather_Analyzer import WeatherAnalyzer
 
-# pipeline = WeatherPipeline(
-#     "http://api.openweathermap.org/data/2.5/forecast",
-#     "6f8511ad484589a6fd579cd02af41194",
-#     "weather_data.db",
-# )
-
-
 # Initialize FastAPI app
 app = FastAPI()
 
