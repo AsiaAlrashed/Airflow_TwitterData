@@ -36,7 +36,7 @@ class WeatherPipeline:
         return self.loader.quruer_weather_date_location(self.location)
 
     @task
-    def analyzer_task(data, location):
+    def analyzer_task(self, data, location):
         analyzer = WeatherAnalyzer(data, location).analyzer()
         return analyzer
 
